@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class fourth {
+    public static int arrangeCoins(int n) {
+        long low = 0, high = n;
+        while (low <= high) {
+            long mid = low + (high - low) / 2;
+            long coins = mid * (mid + 1) / 2;
+            if (coins == n) return (int) mid;
+            else if (coins < n) low = mid + 1;
+            else high = mid - 1;
+        }
+        return (int) high;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(arrangeCoins(n));
+    }
+}
